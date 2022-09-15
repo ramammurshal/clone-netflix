@@ -1,0 +1,111 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import Input from '../components/Input'
+import FormButton from '../components/FormButton'
+import { UserAuth } from '../context/AuthContext'
+
+const SignUp = () => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [passwordConfirmation, setPasswordConfirmation] = useState('')
+
+  const { signUp } = UserAuth()
+  const navigate = useNavigate()
+
+  const handleSignUp = async (event) => {
+    event.preventDefault()
+
+    if (email === '' || password === '' || passwordConfirmation === '') {
+      toast.error('Please complete your data first.', {
+        position: toast.POSITION.BOTTOM_RIGHT,
+        autoClose: 2000,
+        hideProgressBar: true,
+      })
+    } else {
+      if (password !== passwordConfirmation) {
+        toast.error('Your password confirmation is wrong!', {
+          position: toast.POSITION.BOTTOM_RIGHT,
+          autoClose: 2000,
+          hideProgressBar: true,
+        })
+      } else {
+        const resolveSignUp = new Promise(async (resolve, reject) => {
+          try {
+            const response = await signUp(email, password)
+            resolve(response)
+          } catch (error) {
+            reject(error)
+          }
+        })
+
+        toast
+          .promise(
+            resolveSignUp,
+            {
+              pending: 'Please wait, we are registering you.',
+              success: 'Success!',
+              error: {
+                render(error) {
+                  // console.log(error.data.message)
+                  return error.data.message
+                },
+              },
+            },
+            {
+              position: toast.POSITION.BOTTOM_RIGHT,
+              hideProgressBar: true,
+              autoClose: 2000,
+            }
+          )
+          .then((response) => {
+            // console.log(response)
+            navigate('/')
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+      }
+    }
+  }
+
+  return (
+    <>
+      <div className='w-[100%] h-[100vh] bg-black/50 flex items-center justify-center'>
+        <img
+          src='https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bcae-07a3f8dc141a/f6d7434e-d6de-4185-a6d4-c77a2d08737b/US-en-20220502-popsignuptwoweeks-perspective_alpha_website_medium.jpg'
+          alt='Background Auth'
+          className='absolute w-[100%] h-[100vh] -z-10 object-cover'
+        />
+        <div className='bg-black/70 p-14'>
+          <div className='mb-8 font-bold text-4xl'>Sign Up!</div>
+          <form onSubmit={handleSignUp} className='w-[350px]'>
+            <Input
+              type='email'
+              placeholder='Email'
+              value={email}
+              modifier={setEmail}
+            />
+            <Input
+              type='password'
+              placeholder='Password'
+              value={password}
+              modifier={setPassword}
+            />
+            <Input
+              type='password'
+              placeholder='Password Confirmation'
+              value={passwordConfirmation}
+              modifier={setPasswordConfirmation}
+            />
+            <FormButton title='Sign Up' />
+          </form>
+        </div>
+      </div>
+      <ToastContainer />
+    </>
+  )
+}
+
+export default SignUp

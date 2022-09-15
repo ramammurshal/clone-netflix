@@ -1,0 +1,78 @@
+[
+  [
+    {
+      "title": "FAQ",
+      "url": "https://help.netflix.com/en/node/412"
+    },
+    {
+      "title": "Investor Relations",
+      "url": "https://ir.netflix.net/ir-overview/profile/default.aspx"
+    },
+    {
+      "title": "Ways to Watch",
+      "url": "https://devices.netflix.com/en/"
+    },
+    {
+      "title": "Corporate Information",
+      "url": "https://help.netflix.com/legal/corpinfo"
+    },
+    {
+      "title": "Only On Netflix",
+      "url": "https://www.netflix.com/id-en/browse/genre/839338"
+    }
+  ],
+  [
+    {
+      "title": "Help Center",
+      "url": "https://help.netflix.com/en/"
+    },
+    {
+      "title": "Jobs",
+      "url": "https://jobs.netflix.com/"
+    },
+    {
+      "title": "Terms of Use",
+      "url": "https://help.netflix.com/legal/termsofuse"
+    },
+    {
+      "title": "Contact Us",
+      "url": "https://help.netflix.com/en/contactus"
+    }
+  ],
+  [
+    {
+      "title": "Account",
+      "url": "https://www.netflix.com/id-en/login"
+    },
+    {
+      "title": "Redeem Gift Cards",
+      "url": "https://www.netflix.com/id-en/redeem"
+    },
+    {
+      "title": "Privacy",
+      "url": "https://help.netflix.com/legal/privacy"
+    },
+    {
+      "title": "Speed Test",
+      "url": "https://fast.com/"
+    }
+  ],
+  [
+    {
+      "title": "Media Center",
+      "url": "https://media.netflix.com/en/"
+    },
+    {
+      "title": "Buy Gift Cards",
+      "url": "https://www.netflix.com/gift-cards"
+    },
+    {
+      "title": "Cookie Preferences",
+      "url": "https://www.netflix.com/id-en/#"
+    },
+    {
+      "title": "Legal Notices",
+      "url": "https://help.netflix.com/legal/notices"
+    }
+  ]
+]
